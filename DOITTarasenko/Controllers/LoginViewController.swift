@@ -27,7 +27,7 @@ class LoginViewController: BasicViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let _ = userManager?.user {
+        if userManager?.user != nil {
             presentTaskList()
         }
     }
