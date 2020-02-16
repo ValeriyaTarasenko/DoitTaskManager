@@ -165,29 +165,25 @@ class NewTaskViewController: BasicViewController {
     }
     
     private func updateTask(title: String, dateInterval: TimeInterval) {
-        showConfirmationAlert(title: nil,
-           message: "Do you want to update task?",
-           firstAction: {
-                guard let task = self.task else { return }
-                task.title = title
-                task.dueBy = dateInterval
-                task.updatePriority(self.priority)
-                self.taskManager?.updateTask(task: task) { [weak self] (result) in
-                    guard let `self` = self else { return }
-                    switch result {
-                    case .success(_):
-                        if let notificationDate = self.notificationDate {
-                            let notification = UserNotification(id: task.id, body: task.title, dateInterval: notificationDate)
-                            self.notificationManager?.deleteNotification(task.id)
-                            self.notificationManager?.newNotification(notification)
-                        }
-                        self.taskListDelegate?.updateTaskList()
-                        self.navigationController?.popViewController(animated: true)
-                    case let .failure(error):
-                        self.handleError(error)
-                    }
+        guard let task = self.task else { return }
+        task.title = title
+        task.dueBy = dateInterval
+        task.updatePriority(self.priority)
+        self.taskManager?.updateTask(task: task) { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(_):
+                if let notificationDate = self.notificationDate {
+                    let notification = UserNotification(id: task.id, body: task.title, dateInterval: notificationDate)
+                    self.notificationManager?.deleteNotification(task.id)
+                    self.notificationManager?.newNotification(notification)
                 }
-        })
+                self.taskListDelegate?.updateTaskList()
+                self.navigationController?.popViewController(animated: true)
+            case let .failure(error):
+                self.handleError(error)
+            }
+        }
     }
     
     @objc private func handleDatePicker() {
