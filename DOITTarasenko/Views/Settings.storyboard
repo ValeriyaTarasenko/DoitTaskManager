@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="qdM-YQ-WwN">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" title="Settings" id="Exd-ub-OTK" customClass="SettingsViewController" customModule="DOITTarasenko" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BJb-p1-rh5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vVA-Uh-6uf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Set default sorting option" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eDS-33-JQQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsTableViewCell" id="dYz-D3-43S" customClass="SettingsTableViewCell" customModule="DOITTarasenko" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="414" height="45.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dYz-D3-43S" id="3ny-vI-qoD">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U06-kW-7Yh">
+                                                    <rect key="frame" x="10" y="0.0" width="394" height="45.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="eEG-dY-Uk4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="U06-kW-7Yh" secondAttribute="bottom" id="5OB-Hk-qCX"/>
+                                                <constraint firstAttribute="trailing" secondItem="U06-kW-7Yh" secondAttribute="trailing" constant="10" id="L1Y-QX-bUh"/>
+                                                <constraint firstItem="U06-kW-7Yh" firstAttribute="leading" secondItem="3ny-vI-qoD" secondAttribute="leading" constant="10" id="V4g-DP-Hqb"/>
+                                                <constraint firstItem="U06-kW-7Yh" firstAttribute="top" secondItem="3ny-vI-qoD" secondAttribute="top" id="ow0-xe-JDt"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="U06-kW-7Yh" id="M5q-El-0MT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Exd-ub-OTK" id="Vm6-ON-k7u"/>
+                                    <outlet property="delegate" destination="Exd-ub-OTK" id="kx5-lY-zLo"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jD0-c9-wgA" firstAttribute="bottom" secondItem="vVA-Uh-6uf" secondAttribute="bottom" id="DAJ-zx-qN2"/>
+                            <constraint firstItem="jD0-c9-wgA" firstAttribute="trailing" secondItem="vVA-Uh-6uf" secondAttribute="trailing" id="Ldj-OC-5he"/>
+                            <constraint firstItem="vVA-Uh-6uf" firstAttribute="leading" secondItem="jD0-c9-wgA" secondAttribute="leading" id="aVQ-Jg-gFN"/>
+                            <constraint firstItem="vVA-Uh-6uf" firstAttribute="top" secondItem="jD0-c9-wgA" secondAttribute="top" id="tyO-8o-934"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jD0-c9-wgA"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="vVA-Uh-6uf" id="6bP-fH-O36"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rv9-Lo-ZfL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="174"/>
+        </scene>
+    </scenes>
+</document>
