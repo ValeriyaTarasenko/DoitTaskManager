@@ -20,7 +20,7 @@ class TaskListViewController: BasicViewController {
     private var tasks = [TaskModel]()
     private var taskContainer: TaskContainer?
     private var refreshControl = UIRefreshControl()
-    private let items = SortingTask.allValues.map { $0.rawValue }
+    private let items = SortingTask.allCases.map { $0.rawValue }
     private var sort = SortingTask.nameUp
     private var notifications = [UserNotification]()
     
@@ -94,8 +94,8 @@ class TaskListViewController: BasicViewController {
         self.navigationItem.rightBarButtonItem?.customView = menuView
         menuView.didSelectItemAtIndexHandler = { [weak self] (indexPath: Int) -> () in
             self?.tasks = []
-            if SortingTask.allValues.indices.contains(indexPath) {
-                self?.sort = SortingTask.allValues[indexPath]
+            if SortingTask.allCases.indices.contains(indexPath) {
+                self?.sort = SortingTask.allCases[indexPath]
             }
             self?.getTasks(page: 1)
         }

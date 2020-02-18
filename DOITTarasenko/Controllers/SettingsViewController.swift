@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: BasicViewController {
     @IBOutlet private weak var tableView: UITableView!
-    private let sortingTask = SortingTask.allValues
+    private let sortingTask = SortingTask.allCases
     var sortType = SortingTask.nameUp
     
     override func viewDidLoad() {

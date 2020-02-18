@@ -61,8 +61,8 @@ class NewTaskViewController: BasicViewController {
     }
     
     @IBAction private func priorityButtonTap(_ sender: UIButton) {
-        guard TaskModel.Priority.allValues.indices.contains(sender.tag) else { return }
-        priority = TaskModel.Priority.allValues[sender.tag]
+        guard TaskModel.Priority.allCases.indices.contains(sender.tag) else { return }
+        priority = TaskModel.Priority.allCases[sender.tag]
         setPriority()
     }
     
@@ -134,7 +134,7 @@ class NewTaskViewController: BasicViewController {
     }
     
     private func setPriority() {
-        guard let index = TaskModel.Priority.allValues.firstIndex(where: {$0 == priority}) else { return }
+        guard let index = TaskModel.Priority.allCases.firstIndex(where: {$0 == priority}) else { return }
         priorityButtons.forEach({button in
             if button.tag == index {
                 button.backgroundColor = .orange

@@ -15,11 +15,4 @@ enum SortingTask: String, CaseIterable {
     case priorityDown = "priority desc"
     case dateUp = "dueBy asc"
     case dateDown = "dueBy desc"
-    
-    static var allValues = [SortingTask.nameUp,
-                           SortingTask.nameDown,
-                           SortingTask.priorityUp,
-                           SortingTask.priorityDown,
-                           SortingTask.dateUp,
-                           SortingTask.dateDown]
 }

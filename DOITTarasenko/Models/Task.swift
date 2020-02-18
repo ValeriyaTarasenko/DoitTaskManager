@@ -31,7 +31,7 @@ public class TaskModel: Codable {
         self.priority = priority.rawValue
     }
     
-    enum Priority: String {
+    enum Priority: String, CaseIterable {
         case low = "Low"
         case medium = "Normal"
         case high = "High"
@@ -46,8 +46,6 @@ public class TaskModel: Codable {
                 return "↓ \(rawValue)"
             }
         }
-        
-        static var allValues = [Priority.high, Priority.medium, Priority.low]
     }
 }
 
